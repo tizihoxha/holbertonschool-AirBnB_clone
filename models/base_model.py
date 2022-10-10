@@ -12,9 +12,6 @@ class BaseModel:
         self.created_at = datetime.now()
         self.updated_at = datetime.now()
 
-    def __str__(self):
-        return (F"[self.__class__.__name__] (self.id), self.__dict")
-
     def save(self):
         self.updated_at = datetime.now()
 
@@ -24,3 +21,6 @@ class BaseModel:
         my_dict["updated_at"] = self.updated_at.isoformat()
         my_dict["__class__"] = self.__class__.__name__
         return my_dict
+
+    def __str__(self):
+        return (F"[self.__class__.__name__] (self.id), self.__dict")
