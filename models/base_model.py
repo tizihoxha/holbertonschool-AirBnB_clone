@@ -7,10 +7,17 @@ from datetime import datetime
 
 class BaseModel:
     """Created base class"""
-    def __init__(self):
+    str_format = "%Y-%m-%dT%H:%M:%S.%f"
+    def __init__(self, *args, **kwargs):
         self.id = str(uuid4())
         self.created_at = datetime.now()
         self.updated_at = datetime.now()
+        if len(kwargs) != 0:
+            for key, value in kwargs.items():
+                if key == "created_at" or key == "updated_at":
+                    self.__dict__[key] = datetime.strptime(value, BaseModel.str_format)
+                else:
+                    self.__dict__[key] = value
 
     def __str__(self):
         return (F"[{self.__class__.__name__}] ({self.id}) {self.__dict__}")

@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """Task 5"""
+<<<<<<< HEAD
 import json
 from models import BaseModel
 
@@ -15,3 +16,5 @@ class FileStorage:
 
 
 
+=======
+>>>>>>> 8ecf800a2e9255941d92d21b45197ad7b4ef554f
