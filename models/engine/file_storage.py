@@ -2,6 +2,7 @@
 """Task 5"""
 import json
 from models.base_model import BaseModel
+from os import path
 
 
 class FileStorage:
@@ -23,5 +24,13 @@ class FileStorage:
         objDict = {}
         for key, value in FileStorage.__objects.items():
             objDict[key] = value.to_json()
-        with open(FileStorage.__file_path, "w") as my_file:
-            my_file.write(json.dumps(objDict))
+        with open(FileStorage.__file_path, "w") as f:
+            f.write(json.dumps(objDict))
+
+    def reload(self):
+        """Deserializes the JSON file to dict objects"""
+        if path.isfile(self.__file_path):
+            with open(self.__file_path, "r") as f:
+                objDict = json.load(f)
+            for key, value in objDict.items():
+                self.__objects[key] = BaseModel(**value)
