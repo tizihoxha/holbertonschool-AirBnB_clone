@@ -17,6 +17,8 @@ class BaseModel:
                     self.__dict__[key] = datetime.strptime(value, BaseModel.str_format)
                 else:
                     self.__dict__[key] = value
+        else:
+            storage.new(self)
 
     def __str__(self):
         return (F"[{self.__class__.__name__}] ({self.id}) {self.__dict__}")
