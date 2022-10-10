@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """Task 5"""
 import json
-from models import BaseModel
+from models.base_model import BaseModel
 
 
 class FileStorage:
