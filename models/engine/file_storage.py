@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """Task 5"""
 import json
-from models.base_model import BaseModel
 from os import path
 
 
@@ -29,6 +28,7 @@ class FileStorage:
 
     def reload(self):
         """Deserializes the JSON file to dict objects"""
+        from models.base_model import BaseModel
         if path.isfile(self.__file_path):
             with open(self.__file_path, "r") as f:
                 objDict = json.load(f)
