@@ -23,6 +23,7 @@ class BaseModel:
 
     def save(self):
         self.updated_at = datetime.now()
+        storage.save()
 
     def to_dict(self):
         my_dict = self.__dict__.copy()
@@ -30,6 +31,3 @@ class BaseModel:
         my_dict["updated_at"] = self.updated_at.isoformat()
         my_dict["__class__"] = self.__class__.__name__
         return my_dict
-
-    def save(self):
-        storage.save()
