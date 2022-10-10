@@ -1,9 +1,7 @@
 #!/usr/bin/python3
 """Task 3"""
-import models
 from uuid import uuid4
 from datetime import datetime
-import json
 from models import storage
 
 class BaseModel:
