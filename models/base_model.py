@@ -4,6 +4,7 @@ import models
 from uuid import uuid4
 from datetime import datetime
 import json
+from models import storage
 
 class BaseModel:
     """Created base class"""
@@ -31,3 +32,6 @@ class BaseModel:
         my_dict["updated_at"] = self.updated_at.isoformat()
         my_dict["__class__"] = self.__class__.__name__
         return my_dict
+
+    def save(self):
+        storage.save()
