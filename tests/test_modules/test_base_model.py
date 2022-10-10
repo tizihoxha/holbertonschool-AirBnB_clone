@@ -20,3 +20,6 @@ class TestBaseModel(unittest.TestCase):
         self.basemodel = BaseModel()
         self.assertTrue(hasattr(self.basemodel, "id"))
 
+    def test_created_at(self):
+        self.basemodel = BaseModel()
+        self.assertTrue(hasattr(self.basemodel, "created_at"))
