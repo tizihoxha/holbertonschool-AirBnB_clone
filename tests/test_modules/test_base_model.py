@@ -16,6 +16,7 @@ class TestBaseModel(unittest.TestCase):
         self.basemodel.save()
         self.assertTrue(hasattr(self.basemodel, "updated_at"))
 
-
-        
+    def test_id(self):
+        self.basemodel = BaseModel()
+        self.assertTrue(hasattr(self.basemodel, "id"))
 
