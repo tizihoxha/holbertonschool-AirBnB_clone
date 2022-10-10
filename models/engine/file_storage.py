@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """Task 5"""
-<<<<<<< HEAD
 import json
 from models import BaseModel
 
@@ -11,10 +10,13 @@ class FileStorage:
     __objects = {}
     """class attributes"""
 
-    def all(self)
+    def all(self):
+        return FileStorage.__objects
+
+    def new(self, obj):
+        FileStorage.__objects[F"{obj.__class__.__name__}.{obj.id}"] = obj
+
+    def save(self):
+        pass
 
 
-
-
-=======
->>>>>>> 8ecf800a2e9255941d92d21b45197ad7b4ef554f
