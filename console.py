@@ -14,3 +14,6 @@ class HBNBCommand(cmd.Cmd):
     def comm_EOF(self, arg):
         """EOF command to return exit program function"""
         return True
+
+if __name__ == '__main__':
+    HBNBCommand().cmdloop()
