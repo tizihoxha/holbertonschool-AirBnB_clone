@@ -26,14 +26,14 @@ class HBNBCommand(cmd.Cmd):
     def do_create(self, arg):
         """create a new intance of basemodel"""
         args = arg.split()
+        if len(args) == 0:
+            return "** class name missing **"
         if args[0] in self.classDict:
             newEl = self.classDict.get(args[0])()
             storage.save()
             print(newEl.id)
         else:
             print("** class doesn't exist **")
-        if len(args) == 0:
-            return "** class name missing **"
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
