@@ -37,7 +37,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
     def do_show(self, arg):
-        args = arg.split()
+        args = arg.parse()
         classDict = storage.all()
         if len(args) == 0:
             print("** class name missing **")
