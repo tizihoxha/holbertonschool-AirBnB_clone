@@ -29,8 +29,10 @@ class FileStorage:
     def reload(self):
         """Deserializes the JSON file to dict objects"""
         from models.base_model import BaseModel
+        from models.user import User
         if path.isfile(self.__file_path):
             with open(self.__file_path, "r") as f:
                 objDict = json.load(f)
             for key, value in objDict.items():
                 self.__objects[key] = BaseModel(**value)
+                self.__objects[key] = User(**value)
