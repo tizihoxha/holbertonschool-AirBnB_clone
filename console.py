@@ -36,5 +36,20 @@ class HBNBCommand(cmd.Cmd):
         else:
             print("** class doesn't exist **")
 
+    def do_show(self, arg):
+        args = arg.split()
+        classDict = storage.all()
+        if len(args) == 0:
+            print("** class name missing **")
+        elif args[0] not in self.classDict:
+            print("** class doesn't exist **")
+        elif len(args) == 1:
+            print("** instance id missing **")
+        elif args[0] not in self.classDict and args[1] not in self.classDict:
+            print("** no instance found **")
+        else:
+            print(classDict[F"{args[0]}.{args[1]}"])
+
+
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
