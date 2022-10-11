@@ -27,7 +27,8 @@ class HBNBCommand(cmd.Cmd):
         """create a new intance of basemodel"""
         args = arg.split()
         if len(args) == 0:
-            return "** class name missing **"
+            print("** class name missing **")
+            return
         if args[0] in self.classDict:
             newEl = self.classDict.get(args[0])()
             storage.save()
