@@ -37,7 +37,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
     def do_show(self, arg):
-        args = arg.parse()
+        args = arg.split()
         classDict = storage.all()
         if len(args) == 0:
             print("** class name missing **")
@@ -45,7 +45,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
         elif len(args) == 1:
             print("** instance id missing **")
-        elif args[0] not in self.classDict and args[1] not in self.classDict:
+        elif "{}.{}".format(qrgs[0], args[1]) not in classDict:
             print("** no instance found **")
         else:
             print(classDict["{}.{}".format(args[0], args[1])])
