@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """Task 8"""
-from models.basemodel import BaseModel
+from models.base_model import BaseModel
 
 
 class User(BaseModel):
