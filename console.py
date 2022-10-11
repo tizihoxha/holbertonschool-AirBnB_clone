@@ -48,7 +48,7 @@ class HBNBCommand(cmd.Cmd):
         elif args[0] not in self.classDict and args[1] not in self.classDict:
             print("** no instance found **")
         else:
-            print(classDict[F"{args[0]}.{args[1]}"])
+            print([F"{args[0].classDict}.{args[1].classDict}"])
 
 
 if __name__ == '__main__':
