@@ -17,7 +17,7 @@ class HBNBCommand(cmd.Cmd):
 
     def emptyline(self):
         """Empty line handeler"""
-        return True
+        return False
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
