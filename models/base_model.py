@@ -4,8 +4,10 @@ from uuid import uuid4
 from datetime import datetime
 from models import storage
 
+
 class BaseModel:
     """Created base class"""
+
     str_format = "%Y-%m-%dT%H:%M:%S.%f"
     def __init__(self, *args, **kwargs):
         self.id = str(uuid4())
@@ -14,7 +16,8 @@ class BaseModel:
         if len(kwargs) != 0:
             for key, value in kwargs.items():
                 if key == "created_at" or key == "updated_at":
-                    self.__dict__[key] = datetime.strptime(value, BaseModel.str_format)
+                    self.__dict__[key] = datetime.strptime(value,
+                            BaseModel.str_format)
                 else:
                     self.__dict__[key] = value
         else:
