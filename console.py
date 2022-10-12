@@ -37,6 +37,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
     def do_show(self, arg):
+        """Prints the string repr of an instance based on id and cls name"""
         args = arg.split()
         classDict = storage.all()
         if len(args) == 0:
@@ -49,6 +50,22 @@ class HBNBCommand(cmd.Cmd):
             print("** no instance found **")
         else:
             print(classDict[F"{args[0]}.{args[1]}"])
+
+    def do_destroy(self, arg):
+        """Deletes an instance based on class name & id"""
+        args = arg.split()
+        classDict = storage.all()
+        if len(args) == 0:
+            print("** class name missing **")
+        elif args[0] noy in self.classDict:
+            print("** class doesn't exist **")
+        elif len(args) == 1:
+            print("** instance id missing **")
+        elif F"{args[0]}.{args[1]}" not in classDict:
+            print("** no instance found **")
+        else:
+            del classDict[F"{args[0]}.{args[1]}"]
+
 
 
 if __name__ == '__main__':
