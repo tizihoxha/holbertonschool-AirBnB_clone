@@ -65,8 +65,7 @@ class HBNBCommand(cmd.Cmd):
             print("** no instance found **")
         else:
             del classDict[F"{args[0]}.{args[1]}"]
-
-
+            storage.save()
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
