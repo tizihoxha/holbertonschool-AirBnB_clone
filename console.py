@@ -77,7 +77,7 @@ class HBNBCommand(cmd.Cmd):
         if len(args) == 1:
             if args[0] in self.classDict:
                 for key, value in classDict.items():
-                    if value.__class__name__ = args[0]:
+                    if value.__class__name__ == args[0]:
                         print(value)
             else:
                 print("** class doesn't exist **")
