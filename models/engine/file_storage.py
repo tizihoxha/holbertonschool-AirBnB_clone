@@ -35,4 +35,4 @@ class FileStorage:
                 objDict = json.load(f)
             for key, value in objDict.items():
                 self.__objects[key] = BaseModel(**value)
-                self.__objects[key] = User(**value)
+                # self.__objects[key] = User(**value)
