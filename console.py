@@ -102,7 +102,7 @@ class HBNBCommand(cmd.Cmd):
                 print("** no instance found **")
             else:
                 setattr(storage.all()[key], args[2], args[3])
-                storage.save()
+            storage.save()
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
