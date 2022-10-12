@@ -57,7 +57,7 @@ class HBNBCommand(cmd.Cmd):
         classDict = storage.all()
         if len(args) == 0:
             print("** class name missing **")
-        elif args[0] noy in self.classDict:
+        elif args[0] not in self.classDict:
             print("** class doesn't exist **")
         elif len(args) == 1:
             print("** instance id missing **")
@@ -65,7 +65,6 @@ class HBNBCommand(cmd.Cmd):
             print("** no instance found **")
         else:
             del classDict[F"{args[0]}.{args[1]}"]
-            storage.save()
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
