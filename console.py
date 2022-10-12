@@ -97,12 +97,12 @@ class HBNBCommand(cmd.Cmd):
         elif len(args) == 3:
             print("** value missing **")
         else:
-            key = f"args[0].args[1]"
+            key = args[0] + "." + args[1]
             if key not in storage.all():
                 print("** no instance found **")
             else:
                 setattr(storage.all()[key], args[2], args[3])
-            storage.save()
+                storage.save()
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
