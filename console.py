@@ -70,10 +70,12 @@ class HBNBCommand(cmd.Cmd):
     def do_all(self, arg):
         """Prints all str repr of all instances based or not on the cls name"""
         args = arg.split()
-        if args[0] not in self.classDict:
-            print("** class doesn't exist **")
-        else:
-            print(classDict[F"{args[0]}.{args[1]}"])
+        classDict = storage.all()
+        if len(args) != 0:
+            if args[0] not in self.classDict:
+                print("** class doesn't exist **")
+            else:
+                print(classDict[F"{args[0]}.{args[1]}"])
 
 
 if __name__ == '__main__':
