@@ -7,9 +7,9 @@ from models.base_model import BaseModel
 class TestBaseModel(unittest.TestCase):
     """Test class for base model"""
     def test_str_method(self):
-        self.basemodel = BaseModel()
-        output = f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
-        self.assertEqual(print(self.basemodel), print(output))
+        b = BaseModel()
+        output = "[" + b.__class__.__name__ + "] " + "(" + b.id + ") " + str(b.__dict__)
+        self.assertEqual(b.__str__(), output)
 
     def test_save_method(self):
         self.basemodel = BaseModel()
