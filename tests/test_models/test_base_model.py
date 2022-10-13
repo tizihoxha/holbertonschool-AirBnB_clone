@@ -12,9 +12,11 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(b.__str__(), output)
 
     def test_save_method(self):
-        self.basemodel = BaseModel()
-        self.basemodel.save()
-        self.assertTrue(hasattr(self.basemodel, "updated_at"))
+        b = BaseModel()
+        old = b.updated_at
+        b.save()
+        new = b.updated_at
+        self.assertTrue(new > old)
 
     def test_id(self):
         self.basemodel = BaseModel()
