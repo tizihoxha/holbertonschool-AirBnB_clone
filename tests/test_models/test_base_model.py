@@ -25,3 +25,8 @@ class TestBaseModel(unittest.TestCase):
     def test_created_at(self):
         self.basemodel = BaseModel()
         self.assertTrue(hasattr(self.basemodel, "created_at"))
+
+    def test_to_dict(self):
+        b = BaseModel()
+        bDict = b.to_dict()
+        self.assertTrue(type(bDict["created_at"] == str))
