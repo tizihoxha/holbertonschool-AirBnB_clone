@@ -33,13 +33,12 @@ class TestFileStorage(unittest.TestCase):
         self.assertTrue(key in new_dict)
 
     def test_reload(self):
-        with open("test.json", "w") as f:
-            b = BaseModel()
-            models.storage.new(b)
-            models.storage.save()
-            models.storage.reload()
-            obj = FileStorage._FileStorage__objects
-            self.assertIn("BaseModel." + b.id, obj)
+        b = BaseModel()
+        models.storage.new(b)
+        models.storage.save()
+        models.storage.reload()
+        obj = FileStorage._FileStorage__objects
+        self.assertIn("BaseModel." + b.id, obj)
    
     def test_save(self):
         b = BaseModel()
