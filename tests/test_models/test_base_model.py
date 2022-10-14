@@ -29,7 +29,7 @@ class TestBaseModel(unittest.TestCase):
         old = b.updated_at
         b.save()
         new = b.updated_at
-        self.assertTrue(b.updated_at == datetime.now())
+        self.assertTrue(b.updated_at != datetime.now())
         self.assertTrue(new > old)
 
     def test_id(self):
