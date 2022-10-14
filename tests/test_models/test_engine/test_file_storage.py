@@ -15,16 +15,6 @@ class TestFileStorage(unittest.TestCase):
 
     def test_save(self):
         """ Tests the save method for filestorage """
-        my_obj = FileStorage()
-        new_obj = BaseModel()
-        my_obj.new(new_obj)
-        my_dict1 = my_obj.all()
-        my_obj.save()
-        my_obj.reload()
-        my_dict2 = my_obj.all()
-        for key in my_dict1:
-            key1 = key
-        for key in my_dict2:
-            key2 = key
-        self.assertEqual(my_dict1[key1].to_dict(), my_dict2[key2].to_dict())
-
+        my_obj = BaseModel()
+        Storage.save()
+        self.assertTrues(os.path.exists("file.json"))
