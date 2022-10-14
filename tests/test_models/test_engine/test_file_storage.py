@@ -18,3 +18,16 @@ class TestFileStorage(unittest.TestCase):
     def test__objects(self):
         obj = FileStorage._FileStorage__objects
         self.assertEqual(dict, type(obj))
+
+    def test_all(self):
+        obj = FileStorage()
+        new_dict = obj.all()
+        self.assertTrue(type(new_dict), dict)
+
+    def test_new(self):
+        obj = FileStorage()
+        new_obj = BaseModel()
+        obj.new(new_obj)
+        new_dict = obj.all()
+        key = F"{type(new_obj).__name__}, {new_obj.id}"
+        self.assertTrue(key not in new_dict)
