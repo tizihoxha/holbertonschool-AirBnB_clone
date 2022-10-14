@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """unittesting file_storage"""
 import models
+import json
 from models import storage
 import unittest
 import os
@@ -37,32 +38,7 @@ class TestFileStorage(unittest.TestCase):
         key = "{}.{}".format(type(new_obj).__name__, new_obj.id)
         self.assertTrue(key in new_dict)
 
-    def test_reload(self):
-        b = BaseModel()
-        u = User()
-        s = State()
-        p = Place()
-        c = City()
-        a = Amenity()
-        r = Review()
-        models.storage.new(b)
-        models.storage.new(u)
-        models.storage.new(s)
-        models.storage.new(p)
-        models.storage.new(c)
-        models.storage.new(a)
-        models.storage.new(r)
-        models.storage.save()
-        models.storage.reload()
-        obj = FileStorage._FileStorage__objects
-        self.assertIn("BaseModel." + b.id, obj)
-        self.assertIn("User." + u.id, obj)
-        self.assertIn("State." + s.id, obj)
-        self.assertIn("Place." + p.id, obj)
-        self.assertIn("City." + c.id, obj)
-        self.assertIn("Amenity." + a.id, obj)
-        self.assertIn("Review." + r.id, obj)
-   
+
     def test_save(self):
         b = BaseModel()
         u = User()
@@ -89,6 +65,45 @@ class TestFileStorage(unittest.TestCase):
             self.assertIn("City." + c.id, text)
             self.assertIn("Amenity." + a.id, text)
             self.assertIn("Review." + r.id, text)
+
+    def test_save_arg(self):
+        with self.assertRaises(TypeError):
+            models.storage.save(None)
+
+    def test_reload(self):
+        b = BaseModel()
+        u = User()
+        s = State()
+        p = Place()
+        c = City()
+        a = Amenity()
+        r = Review()
+        models.storage.new(b)
+        models.storage.new(u)
+        models.storage.new(s)
+        models.storage.new(p)
+        models.storage.new(c)
+        models.storage.new(a)
+        models.storage.new(r)
+        models.storage.save()
+        models.storage.reload()
+        obj = FileStorage._FileStorage__objects
+        self.assertIn("BaseModel." + b.id, obj)
+        self.assertIn("User." + u.id, obj)
+        self.assertIn("State." + s.id, obj)
+        self.assertIn("Place." + p.id, obj)
+        self.assertIn("City." + c.id, obj)
+        self.assertIn("Amenity." + a.id, obj)
+        self.assertIn("Review." + r.id, obj)
+
+    """
+    def test_reload_no_file(self):
+        self.assertRaises(FileNotFoundError, models.storage.reload())
+    """
+
+    def test_reload_arg(self):
+        with self.assertRaises(TypeError):
+            models.storage.reload(None)
 
 if __name__ == "__main__":
     unittest.main()
