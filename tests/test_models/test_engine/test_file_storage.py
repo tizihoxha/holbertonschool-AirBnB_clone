@@ -38,7 +38,6 @@ class TestFileStorage(unittest.TestCase):
         key = "{}.{}".format(type(new_obj).__name__, new_obj.id)
         self.assertTrue(key in new_dict)
 
-    """
     def test_save(self):
         b = BaseModel()
         u = User()
@@ -65,7 +64,6 @@ class TestFileStorage(unittest.TestCase):
             self.assertIn("City." + c.id, text)
             self.assertIn("Amenity." + a.id, text)
             self.assertIn("Review." + r.id, text)
-    """
 
     def test_save_arg(self):
         with self.assertRaises(TypeError):
