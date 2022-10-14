@@ -1,6 +1,6 @@
 # AirBnB clone - The console
 ## Console
-### How to start it
+### How to start
 ### How to use it
 ## Files
 * [console.py](https://github.com/tizihoxha/holbertonschool-AirBnB_clone/blob/main/console.py)
