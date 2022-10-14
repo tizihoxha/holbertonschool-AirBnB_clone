@@ -24,14 +24,12 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(b.created_at, date)
         self.assertEqual(b.updated_at, date)
 
-    """
     def test_save(self):
         b = BaseModel()
         old = b.updated_at
         b.save()
         new = b.updated_at
         self.assertTrue(new > old)
-    """
 
     def test_id(self):
         self.basemodel = BaseModel()
