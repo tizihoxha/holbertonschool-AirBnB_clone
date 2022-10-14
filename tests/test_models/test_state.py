@@ -13,4 +13,4 @@ class TestUserClass(unittest.TestCase):
 
     def test_state_name(self):
         state1 = State()
-        self.assertEqual(str, type(state.name))
+        self.assertEqual(str, type(state1.name))
