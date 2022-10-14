@@ -29,5 +29,5 @@ class TestFileStorage(unittest.TestCase):
         new_obj = BaseModel()
         obj.new(new_obj)
         new_dict = obj.all()
-        key = F"{type(new_obj).__name__}, {new_obj.id}"
-        self.assertTrue(key not in new_dict)
+        key = "{}.{}".format(type(new_obj).__name__, new_obj.id)
+        self.assertTrue(key in new_dict)
