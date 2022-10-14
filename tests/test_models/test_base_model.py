@@ -11,7 +11,7 @@ class TestBaseModel(unittest.TestCase):
         output = "[" + b.__class__.__name__ + "] " + "(" + b.id + ") " + str(b.__dict__)
         self.assertEqual(b.__str__(), output)
 
-    def test_save_method(self):
+    def test_save(self):
         b = BaseModel()
         old = b.updated_at
         b.save()
