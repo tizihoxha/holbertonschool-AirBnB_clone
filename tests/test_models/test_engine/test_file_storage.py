@@ -89,3 +89,6 @@ class TestFileStorage(unittest.TestCase):
             self.assertIn("City." + c.id, text)
             self.assertIn("Amenity." + a.id, text)
             self.assertIn("Review." + r.id, text)
+
+if __name__ == "__main__":
+    unittest.main()
