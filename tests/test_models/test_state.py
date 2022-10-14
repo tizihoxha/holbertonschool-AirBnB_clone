@@ -10,3 +10,7 @@ class TestUserClass(unittest.TestCase):
     def test_state(self):
         state1 = State()
         self.assertTrue(isinstance(state1, BaseModel))
+
+    def test_state_name(self):
+        state1 = State()
+        self.assertEqual(str, type(state.name))
