@@ -18,12 +18,3 @@ class TestFileStorage(unittest.TestCase):
         my_obj = BaseModel()
         Storage.save()
         self.assertTrues(os.path.exists("file.json"))
-
-    def test_instances(self):
-        storage = FileStorage()
-        self.assertIsInstance(storage, FileStorage)
-
-    def test_object(self):
-        obj_dict = FileStorage._FileStorage__objects
-        self.assertEqual(dict, type(obj_dict))
-
