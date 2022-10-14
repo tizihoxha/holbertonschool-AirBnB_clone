@@ -34,7 +34,7 @@ class TestBaseModel(unittest.TestCase):
     def test_save_attr(self):
         b = BaseModel()
         b.save()
-        self.assertTrue(type(b.updated_at) == type(datetime.now()))
+        self.assertTrue(type(b.updated_at), type(datetime.now()))
 
     def test_id(self):
         self.basemodel = BaseModel()
