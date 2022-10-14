@@ -11,7 +11,7 @@ class TestCityClass(unittest.TestCase):
         city1 = City()
         self.assertTrue(isinstance(city1, BaseModel))
 
-    def test_city_name(self):
+    def test_city_attr(self):
         city1 = City()
         self.assertEqual(str, type(city1.name))
         self.assertEqual(str, type(city1.state_id))
