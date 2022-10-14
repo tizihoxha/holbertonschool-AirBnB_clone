@@ -8,9 +8,3 @@ from models.engine.file_storage import FileStorage
 
 
 class TestFileStorage(unittest.TestCase):
-
-    def test_save(self):
-        """ Tests the save method for filestorage """
-        my_obj = BaseModel()
-        Storage.save()
-        self.assertTrues(os.path.exists("file.json"))
